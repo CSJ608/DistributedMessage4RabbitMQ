@@ -20,7 +20,7 @@ namespace Microsoft.Extensions.DistributedMessage4RabbitMQ.Configuration
 
             QueueDeclareValue declareValue = new()
             {
-                Name = !string.IsNullOrEmpty(queueDeclareAttribute?.Name) ? queueDeclareAttribute.Name : defaultValue.Name ?? MyStackConsts.DEFAULT_QUEUE_NAME,
+                Name = queueDeclareAttribute?.Name != null ? queueDeclareAttribute.Name : defaultValue.Name ?? MyStackConsts.DEFAULT_QUEUE_NAME,
                 Durable = queueDeclareAttribute?.Durable ?? defaultValue.Durable,
                 Exclusive = queueDeclareAttribute?.Exclusive ?? defaultValue.Exclusive,
                 AutoDelete = queueDeclareAttribute?.AutoDelete ?? defaultValue.AutoDelete,

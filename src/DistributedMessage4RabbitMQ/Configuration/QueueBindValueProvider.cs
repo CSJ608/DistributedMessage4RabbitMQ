@@ -48,7 +48,7 @@ namespace Microsoft.Extensions.DistributedMessage4RabbitMQ.Configuration
                 routingKey = _routingKeyProvider.GetValue(routingKey);
             QueueBindValue queueBindValue = new()
             {
-                QueueName = (!string.IsNullOrEmpty(queueBindAttribute?.QueueName) ? queueBindAttribute.QueueName : queueDeclareValue.Name ?? MyStackConsts.DEFAULT_QUEUE_NAME)!,
+                QueueName = (queueBindAttribute?.QueueName != null ? queueBindAttribute.QueueName : queueDeclareValue.Name ?? MyStackConsts.DEFAULT_QUEUE_NAME)!,
                 ExchangeName = (!string.IsNullOrEmpty(queueBindAttribute?.ExchangeName) ? queueBindAttribute.ExchangeName : exchangeDeclareValue.Name ?? MyStackConsts.DEFAULT_EXCHANGE_NAME)!,
                 RoutingKey = routingKey,
                 Arguments = new Dictionary<string, object?>()
