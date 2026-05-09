@@ -32,8 +32,7 @@ namespace Microsoft.Extensions.DistributedMessage4RabbitMQ.Contracts
         public Dictionary<string, object?>? Arguments { get; set; }
         public QueueDeclareAttribute(string name)
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
-            Name = name;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
         }
     }
 }
