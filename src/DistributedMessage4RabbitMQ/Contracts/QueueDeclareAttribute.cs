@@ -34,5 +34,13 @@ namespace Microsoft.Extensions.DistributedMessage4RabbitMQ.Contracts
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
+
+        public QueueDeclareAttribute(string name, bool durable, bool exclusive, bool autoDelete)
+        {
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Durable = durable;
+            Exclusive = exclusive;
+            AutoDelete = autoDelete;
+        }
     }
 }
